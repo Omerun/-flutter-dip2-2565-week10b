@@ -1,35 +1,34 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
-class StateFullPage extends StatefulWidget {
-  const StateFullPage({Key? key}) : super(key: key); //1.constructor
+class StateFulPage extends StatefulWidget {
+  const StateFulPage({Key? key}) : super(key: key);
 
   @override
-  State<StateFullPage> createState() => _StateFullPageState(); //2.Create state
+  State<StateFulPage> createState() => _StateFulPageState();
 }
 
-class _StateFullPageState extends State<StateFullPage> {
+class _StateFulPageState extends State<StateFulPage> {
   String name = "Mark Zackerberg";
 
-  @override //3.build
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Flutter Basic'),
-        ),
-        body: Column(
-          children: [
-            TextField(
-              onChanged: (value) {
-                setState(() {
-                  name = value;
-                });
-              },
-            ),
-            Text("Hello $name"),
-          ],
-        )
+      appBar: AppBar(
+        title: Text('Flutter Basic'),
+      ),
+      body: Column(
+        children: [
+          TextField(
+            onChanged: (value) {
+              setState((){
+                name = value;
+              });
+              print("Setsate is called: $name");
+            },
+          ),
+          Text("Hello $name"),
+        ],
+      ),
     );
   }
 }
